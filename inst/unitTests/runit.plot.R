@@ -27,26 +27,31 @@
 
 
 ################################################################################
+# FUNCTION:                 INTERNAL USED PLOT FUNCTIONS:
+#  .residualsPlot            Returns a residual series plot
+#  .acfPlot                  Returns a autocorrelation function plot
+#  .pacfPlot                 Returns a partial ACF plot
+#  .mrlPlot                  Returns a mean residual life plot
+# FUNCTION:                 INTERNAL USED BIVARIATE PLOT FUNCTIONS:
+#  .responsesPlot            Returns a response series plot
+#  .firePlot                 Returns a fitted values vs.residuals plot
+# FUNCTION:                 INTERNAL THREE-DIMENSIONAL PLOT UTILITIES:
+#  .circlesPlot              Returns a circles plot indexing 3rd variable
+#  .perspPlot                Returns a perspective plot in 2 dimensions
+#  .contourPlot              Returns a contour plot in 2 dimensions
+#  .histStack                Returns a stacked histogram plot
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.plot <-  
+    function()
+{
+    # Plot:
+    NA
+    
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

@@ -9,7 +9,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
 # GNU Library General Public License for more details.
 #
-# You should have received a copy of the GNU Library General 
+# You should have received A copy of the GNU Library General 
 # Public License along with this library; if not, write to the 
 # Free Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
 # MA  02111-1307  USA
@@ -23,30 +23,46 @@
 #   see R's copyright and license files
 # for the code accessed (or partly included) from contributed R-ports
 # and other sources
-#   see Rmetrics's copyright file 
+#   see Rmetrics's copyright file
 
 
 ################################################################################
+# FUNCTION:                 DESCRIPTION:
+#  symbolTable               Shows a table of plot symbols
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
+symbolTable <- 
+    function(font = par('font'), cex = 0.7) 
 {   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
+    # A function implemented by Diethelm Wuertz
+
+    # Description:
+    #   Shows a table of plot characters.
+    
+    # Example:
+    #   symbolTable()
+    
+    # Author:
+    #   Unknown, pice of code found on the internet.
+
+    # FUNCTION:
+    
+    # Table:
+    plot(0, 0, xlim = c(-1, 11), ylim = c(0, 26), type = 'n', 
+        axes = FALSE, xlab = '', ylab = '', 
+        main = "Table of Plot Characters")
+    j = -1
+    for(i in 0:255) {
+        if(i %% 25 == 0) {j = j+1; k = 26}
+        k = k-1
+        points(j, k, pch = i, font = font, cex = cex, col = 2)
+        text(j+0.50, k, i, cex = cex) 
     }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+    
+    # Return Value:
+    invisible(font)
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

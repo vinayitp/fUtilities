@@ -27,26 +27,23 @@
 
 
 ################################################################################
+# FUNCTION:             HEAVISIDE AND RELATED FUNCTIONS:
+#  Heaviside             Computes Heaviside unit step function
+#  Sign                  Another signum function
+#  Delta                 Computes delta function
+#  Boxcar                Computes boxcar function
+#  Ramp                  Computes ramp function
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.Heaviside <- 
+    function()
+{
+    NA
+        
+    # Return Value:
+    return() 
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

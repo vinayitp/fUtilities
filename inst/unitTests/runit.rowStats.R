@@ -27,26 +27,31 @@
 
 
 ################################################################################
+# FUNCTION:             ROW AND COLUMN STATISTICS:
+#  rowStats              Computes sample statistics by row
+#   rowAvgs               Computes sample mean by row
+#   rowVars               Computes sample variance by row
+#   rowStdevs             Computes sample variance by row
+#   rowSkewness           Computes sample skewness by row
+#   rowKurtosis           Computes sample kurtosis by row
+#   rowCumsums            Computes sample cumulated sums by row
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.colStats = 
+function()
+{
+    #  colStats              Computes sample statistics by column
+    #   colAvgs               Computes sample mean by column
+    #   colVars               Computes sample variance by column
+    #   colStdevs             Computes sample variance by column
+    #   colSkewness           Computes sample skewness by column
+    #   colKurtosis           Computes sample kurtosis by column
+    #   colCumsums            Computes sample cumulated sums by column
+    
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

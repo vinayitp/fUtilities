@@ -27,26 +27,35 @@
 
 
 ################################################################################
+# FUNCTION:                 UTILITIES:
+#  .asRGB                    Converts any R color to RGB (red/green/blue)
+#  .chcode                   Changes from one to another number system
+#  .hex.to.dec               Converts heximal numbers do decimal numbers
+#  .dec.to.hex               Converts decimal numbers do heximal numbers
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
+test.hexCode <- 
+    function()
+{
+    #  .chcode                   Changes from one to another number system
+    #  .hex.to.dec               Converts heximal numbers do decimal numbers
+    #  .dec.to.hex               Converts decimal numbers do heximal numbers
+    
+    # Change from one to another number system
+    # .chcode(b, base.in = 2, base.out = 10, digits="0123456789ABCDEF")
+ 
+    # Convert heximal numbers do decimal numbers
+    # .hex.to.dec(b)
+    .hex.to.dec("AA")
 
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+    # Convert decimal numbers do heximal numbers
+    # .dec.to.hex(b)
+    .dec.to.hex(170)
+
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

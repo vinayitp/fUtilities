@@ -27,27 +27,48 @@
 
 
 ################################################################################
+# FUNCTION:            PLOT UTILITIES:
+#  interactivePlot      Plots several graphs interactively
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.interactivePlot <- 
+    function()
+{
+    # interactivePlot(x, choices = paste("Plot", 1:9), 
+    #   plotFUN = paste("plot.", 1:9, sep = ""), which = "all", ...)
+    
+    # Test Plot Function:
+    testPlot = function(x, which = "all", ...) {   
+        # Plot Function and Addons:
+        plot.1 <<- function(x, ...) plot(x, ...)      
+        plot.2 <<- function(x, ...) acf(x, ...)
+        plot.3 <<- function(x, ...) hist(x, ...)      
+        plot.4 <<- function(x, ...) qqnorm(x, ...)
+        # Plot:
+        interactivePlot(x,
+            choices = c("Series Plot", "ACF", "Histogram", "QQ Plot"),
+            plotFUN = c("plot.1", "plot.2", "plot.3", "plot.4"),
+            which = which, ...)       
+        # Return Value:
+        invisible()
+    } 
+    
+    # Plot:
+    par(mfrow = c(2, 2), cex = 0.7)
+    testPlot(rnorm(500))
+    
+    # Reorder 2:
+    par(mfrow = c(2, 1), cex = 0.7)
+    testPlot(rnorm(500), which = c(1, 2))
+       
+    # Try:
+    # par(mfrow = c(1,1)); testPlot(rnorm(500), which = "ask")
+        
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
-
+       
 
 ################################################################################
 

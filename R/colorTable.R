@@ -9,7 +9,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
 # GNU Library General Public License for more details.
 #
-# You should have received a copy of the GNU Library General 
+# You should have received A copy of the GNU Library General 
 # Public License along with this library; if not, write to the 
 # Free Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
 # MA  02111-1307  USA
@@ -23,30 +23,44 @@
 #   see R's copyright and license files
 # for the code accessed (or partly included) from contributed R-ports
 # and other sources
-#   see Rmetrics's copyright file 
+#   see Rmetrics's copyright file
 
 
 ################################################################################
+# FUNCTION:                 DESCRIPTION:
+#  colorTable                Shows a table of plot color codes
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
+colorTable <- 
+    function(cex = 0.7) 
 {   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+    # A function implemented by Diethelm Wuertz
+    
+    # Description:
+    #   Displays a table of plot colors.
+    
+    # Author:
+    #   Unknown, piece of code found on the internet.
+    
+    # Example:
+    #   colorTable()
+  
+    # FUNCTION:
+    
+    # Plot:
+    plot(0, 0, xlim = c(-1, 10), ylim = c(0, 10), type = 'n', axes = FALSE, 
+        xlab = '', ylab = '', cex = cex, main = "Table of Color Codes")
+    j = -1
+    for(i in 0:99) {
+        if(i %% 10 == 0) {j = j+1; k = 10}
+        k = k-1
+        points(j, k, pch = 15, col = i, cex = 2)
+        text(j+0.45, k, i, cex = cex)}
+    
+    # Return Value:
+    invisible()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

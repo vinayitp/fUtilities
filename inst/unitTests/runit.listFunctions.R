@@ -27,26 +27,35 @@
 
 
 ################################################################################
+# FUNCTION:                 DESCRIPTION:
+#  listFunctionss            Lists all functions in a package
+#  countFunctions            Counts all functions in a package
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.listFunctions <-  
+    function()
+{
+    # List Functions:
+    print(listFunctions("fUtilities"))
+    
+    # Return Value:
+    return()
 }
 
 
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
+# ------------------------------------------------------------------------------
+
+
+test.countFunctions <-  
+    function()
+{
+    # Count Functions:
+    print(countFunctions("fUtilities"))
+    
+    # Return Value:
+    return()
+}
 
 
 ################################################################################

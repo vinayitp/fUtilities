@@ -27,26 +27,22 @@
 
 
 ################################################################################
+# FUNCTION:                 CONTROL ATTRIBUTES:
+#  print.control             Prints unlisted control attributes  
+# FUNCTION:                 DESCRIPTION:
+#  .print                    Used in regression package
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.print <-  
+    function()
+{
+    # Print:
+    NA
+    
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

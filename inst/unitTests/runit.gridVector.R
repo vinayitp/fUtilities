@@ -27,26 +27,22 @@
 
 
 ################################################################################
+# FUNCTION:               DESCRIPTION:
+#  gridVector              Creates from two vectors rectangular grid coordinates
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
+test.gridVector = 
+function()
+{
+    # Grid Vector - gridVector(x, y)
+    gridVector(1:3, 1:3)
+    as.data.frame(gridVector(1:3, 1:3))
+    as.matrix(as.data.frame(gridVector(1:3, 1:3)))
 
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

@@ -27,26 +27,61 @@
 
 
 ################################################################################
+# FUNCTION:             SKEWNESS:
+#   skewness.default      Default method
+#   skewness.data.frame   Method for objects of class data.frame
+#   skewness.POSIXct      Method for objects of class POSIXct 
+#   skewness.POSIXlt      Method for objects of class POSIXlt 
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.skewness.default <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
 }
 
+    
+# ------------------------------------------------------------------------------
 
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
+
+test.skewness.data.frame <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
+
+    
+# ------------------------------------------------------------------------------
+
+
+test.skewness.POSIXct <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
+
+    
+# ------------------------------------------------------------------------------
+
+
+test.skewness.POSIXlt <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
 
 
 ################################################################################

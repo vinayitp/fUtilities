@@ -27,26 +27,24 @@
 
 
 ################################################################################
+# FUNCTION:                 GENERAL EXTRACTORS FOR S4:
+#  isS4                      Checks if a function is a S4 object
+#  getCall                   Extracts the call slot from a S4 object 
+#  getModel                  Extracts the model slot from a S4 object
+#  getTitle                  Extracts the title slot from a S4 object
+#  getDescription            Extracts the description slot from a S4 object
+#  getSlot                   Extracts a specified slot from a S4 object
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.isS4 <- 
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
 
 
 ################################################################################

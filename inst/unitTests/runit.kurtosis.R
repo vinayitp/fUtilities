@@ -27,26 +27,61 @@
 
 
 ################################################################################
+# FUNCTION:                 DESCRIPTION:
+#   kurtosis.default         Default method
+#   kurtosis.data.frame      Method for objects of class data.frame
+#   kurtosis.POSIXct         Method for objects of class POSIXct 
+#   kurtosis.POSIXlt         Method for objects of class POSIXlt 
+################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.kurtosis.default <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
 }
 
+    
+# ------------------------------------------------------------------------------
 
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
+
+test.kurtosis.data.frame <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
+
+    
+# ------------------------------------------------------------------------------
+
+
+test.kurtosis.POSIXct <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
+
+    
+# ------------------------------------------------------------------------------
+
+
+test.kurtosis.POSIXlt <-
+    function() 
+{
+    NA
+    
+    # Return Value:
+    return()
+}
 
 
 ################################################################################

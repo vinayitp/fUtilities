@@ -26,28 +26,22 @@
 #   see Rmetrics's copyright file 
 
 
+################################################################################                                                                                                                                                                                 
+# FUNCTION:                 DESCRIPTION:                                                                                                   
+#  Sys.putenv                depreciated after 2.4.1   
+#  head.ts                   Adds head method                        
 ################################################################################
 
 
-.First.lib =  
-function(lib, pkg)
-{   
-    # Startup Mesage and Desription:
-    MSG <- if(getRversion() >= "2.5") packageStartupMessage else message
-    dsc <- packageDescription(pkg)
-    if(interactive() || getOption("verbose")) { 
-        # not in test scripts
-        MSG(sprintf("Rmetrics Package %s (%s) loaded.", pkg, dsc$Version))
-    }
-
-    # Load dll:
-    # library.dynam("fUtilities", pkg, lib) 
+test.Sys.putenv <- 
+    function()
+{
+    NA
+    
+    # Return Value:
+    return()
 }
-
-
-if(!exists("Sys.setenv", mode = "function")) # pre R-2.5.0, use "old form"
-    Sys.setenv <- Sys.putenv
-
+   
 
 ################################################################################
 
